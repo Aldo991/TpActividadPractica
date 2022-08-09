@@ -4,11 +4,18 @@ import java.util.ArrayList;
 
 public class Entrenador {
 
+	private int id;
 	private String nombre;
 	private int edad;
 	private ArrayList<Pokemon> pokemons;
 	private Club grupo;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public ArrayList<Pokemon> getPokemons() {
 		return pokemons;
 	}

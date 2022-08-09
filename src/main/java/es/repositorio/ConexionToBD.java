@@ -11,14 +11,14 @@ public class ConexionToBD {
 	private String user="root";
 	private String jdbc="com.mysql.jdbc.Driver";
 	
-	protected Connection con;
+	protected Connection conector;
 	
-	public void conectar()
+	public void conectarBD()
 	{
 		try
 		{
 			Class.forName(jdbc);
-			con = DriverManager.getConnection(URL, user,pass);
+			conector = DriverManager.getConnection(URL, user,pass);
 			
 		}
 		catch(Exception e)
@@ -26,13 +26,13 @@ public class ConexionToBD {
 			e.printStackTrace();
 		}
 	}
-	public void desconectar() throws SQLException
+	public void desconectarBD() throws SQLException
 	{
-		if (con!=null)
+		if (conector!=null)
 		{
-			if(!con.isClosed())
+			if(!conector.isClosed())
 			{
-				con.close();
+				conector.close();
 			}
 		}
 	}
