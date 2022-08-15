@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class ConexionToBD {
 
-	private String URL="jdbc:mysql://localhost/nombre"; //nombre = nombre de la base de datos
-	private String pass="admin";
+	private String URL="jdbc:mysql://localhost/TpActividadPractica"; //nombre = nombre de la base de datos
+	private String pass="123";
 	private String user="root";
 	private String jdbc="com.mysql.jdbc.Driver";
 	
