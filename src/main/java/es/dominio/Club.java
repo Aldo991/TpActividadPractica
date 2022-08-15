@@ -2,9 +2,16 @@ package es.dominio;
 
 public class Club {
 
+	private int id;
 	private String nombre;
 	private String ciudad;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNombre() {
 		return nombre;
 	}
