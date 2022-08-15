@@ -44,31 +44,41 @@ public class EntrenadorDAOImpl extends ConexionToBD implements EntrenadorDAO{
 
 	@Override
 	public boolean registrarEntrenador(Entrenador entrenador) throws SQLException {
-		// TODO Auto-generated method stub
+		conectarBD();
+		String insertarSQL = "INSERT INTO Entrenadores";
+		desconectarBD();
 		return false;
 	}
 
 	@Override
 	public boolean modificarEntrenador(Entrenador entrenador) throws SQLException {
-		// TODO Auto-generated method stub
+		conectarBD();
+		String updateSQL = "UPDATE FROM Entrenadores WHERE";
+		desconectarBD();
 		return false;
 	}
 
 	@Override
 	public boolean agregarPokemon(int idPokemon, int idEntrenador) throws SQLException {
-		// TODO Auto-generated method stub
+		conectarBD();
+		String insertSQL = "INSERT INTO Entrenadores ";
+		desconectarBD();
 		return false;
 	}
 
 	@Override
 	public boolean eliminarPokemon(int idPokemon, int idEntrenador) throws SQLException {
-		// TODO Auto-generated method stub
+		conectarBD();
+		String deleteSQL = "DELETE FROM Entrenadores WHERE";
+		desconectarBD();
 		return false;
 	}
 
 	@Override
 	public boolean eliminarEntrenador(int id) throws SQLException {
-		// TODO Auto-generated method stub
+		conectarBD();
+		String deleteSQL = "DELETE FROM Entrenadores WHERE";
+		desconectarBD();
 		return false;
 	}
 	private Entrenador convertResultSetToEntrenador(ResultSet resultado) throws SQLException
