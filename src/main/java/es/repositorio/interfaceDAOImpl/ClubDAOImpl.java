@@ -16,7 +16,7 @@ public class ClubDAOImpl extends ConexionToBD implements ClubDAO {
 	@Override
 	public boolean nuevoClub(Club club) throws SQLException {
 		conectarBD();
-		
+		String insertSQL = "INSERT INTO Clubes VALUE ()";
 		desconectarBD();
 		return false;
 	}

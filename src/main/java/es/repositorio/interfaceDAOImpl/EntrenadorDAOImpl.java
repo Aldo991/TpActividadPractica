@@ -11,21 +11,6 @@ import es.repositorio.interfaceDAO.EntrenadorDAO;
 public class EntrenadorDAOImpl extends ConexionToBD implements EntrenadorDAO{
 
 	@Override
-	public Entrenador consultarEntrenador(int id) throws SQLException {
-		conectarBD();
-		String consultaSQL = "SELECT * FROM Entrenadores WHERE id = " + id;
-		PreparedStatement consultar = conector.prepareStatement(consultaSQL);
-		ResultSet resultado = consultar.executeQuery();
-		if(resultado.next())
-		{
-			desconectarBD();
-			return convertResultSetToEntrenador(resultado);
-		}
-		desconectarBD();
-		return null;
-	}
-
-	@Override
 	public Entrenador consultarEntrenador(String username, String pass) throws SQLException {
 		conectarBD();
 		String consultaSQL = "SELECT * "
@@ -45,15 +30,17 @@ public class EntrenadorDAOImpl extends ConexionToBD implements EntrenadorDAO{
 	@Override
 	public boolean registrarEntrenador(Entrenador entrenador) throws SQLException {
 		conectarBD();
-		String insertarSQL = "INSERT INTO Entrenadores";
-		desconectarBD();
-		return false;
-	}
-
-	@Override
-	public boolean modificarEntrenador(Entrenador entrenador) throws SQLException {
-		conectarBD();
-		String updateSQL = "UPDATE FROM Entrenadores WHERE";
+		String insertarSQL = "INSERT INTO Entrenadores VALUES (????,NULL)";
+		PreparedStatement ps = conector.prepareStatement(insertarSQL);
+		ps.setString(1, entrenador.getNombre());
+		ps.setString(2, entrenador.getUserName());
+		ps.setString(3, entrenador.getPassword());
+		ps.setInt(4, entrenador.getEdad());
+		if(ps.execute())
+		{
+			desconectarBD();
+			return true;
+		}
 		desconectarBD();
 		return false;
 	}
