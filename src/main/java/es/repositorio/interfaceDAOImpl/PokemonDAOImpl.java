@@ -24,19 +24,13 @@ public class PokemonDAOImpl extends ConexionToBD implements PokemonDAO {
 	}
 
 	@Override
-	public Pokemon consultarPokemon(int id_PokeAPI, int id_Entrenador) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public ArrayList<Pokemon> listaDePokemons(int id_entrenador) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean actualizarPokemon(int id_pokemon) throws SQLException {
+	public boolean actualizarHP(int id_pokemon, int hp) throws SQLException {
 		// TODO Auto-generated method stub
 		return false;
 	}
