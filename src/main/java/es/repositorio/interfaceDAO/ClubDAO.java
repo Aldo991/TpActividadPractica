@@ -8,7 +8,7 @@ import es.dominio.SingleClub;
 
 public interface ClubDAO {
 
-	public boolean nuevoClub(Club club) throws SQLException;
+	public int nuevoClub(Club club, String tipoclub) throws SQLException;
 	public boolean elimnarClub(int id) throws SQLException;
 	public Club consultarClub(int id) throws SQLException;
 }
