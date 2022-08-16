@@ -8,19 +8,13 @@ import es.repositorio.interfaceDAO.BolaDAO;
 public class BolaDAOImpl implements BolaDAO {
 
 	@Override
-	public boolean nuevaBola(int id) throws SQLException {
+	public int nuevaBola(Bola bola) throws SQLException {
 		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
 
 	@Override
 	public boolean eliminarBola(int id) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean modificarBola(Bola bola) throws SQLException {
 		// TODO Auto-generated method stub
 		return false;
 	}
