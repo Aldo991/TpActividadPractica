@@ -17,12 +17,11 @@ public class BolaDAOImpl extends ConexionToBD implements BolaDAO {
 		int id = 0;
 		String insertSQL = "INSERT INTO Bolas VALUE ("+id_entrenador+","+bola.getTipoDeBola() +")";
 		PreparedStatement ps = conector.prepareStatement(insertSQL);
-		ResultSet rs = ps.executeQuery();
+		ps.executeUpdate();
+		ResultSet rs = conector.prepareStatement("SELECT MAX(id) FROM Bolas").executeQuery();
 		if(rs.next())
 		{
-			id = rs.getInt("id");
-			desconectarBD();
-			return id;
+			id = rs.getInt(1);
 		}
 		desconectarBD();
 		return id;

@@ -29,24 +29,23 @@ public class EntrenadorDAOImpl extends ConexionToBD implements EntrenadorDAO{
 	}
 
 	@Override
-	public Entrenador registrarEntrenador(Entrenador entrenador) throws SQLException {
+	public int registrarEntrenador(Entrenador entrenador) throws SQLException {
 		conectarBD();
-		Entrenador retornar = new Entrenador();
-		String insertarSQL = "INSERT INTO Entrenadores VALUES (????,NULL)";
+		int id = -1;
+		String insertarSQL = "Insert into Entrenadores (nombre, userName, password, edad) value (?,?,?,?)";
 		PreparedStatement ps = conector.prepareStatement(insertarSQL);
 		ps.setString(1, entrenador.getNombre());
 		ps.setString(2, entrenador.getUserName());
 		ps.setString(3, entrenador.getPassword());
 		ps.setInt(4, entrenador.getEdad());
-		if(ps.execute())
+		id = ps.executeUpdate();
+		ResultSet rs = conector.prepareStatement("select max(id) from entrenadores").executeQuery();
+		if(rs.next())
 		{
-			retornar = entrenador;
-			desconectarBD();
-			retornar = consultarEntrenador(retornar.getUserName(), retornar.getPassword());
-			return retornar;
+			id = rs.getInt(1);
 		}
 		desconectarBD();
-		return retornar;
+		return id;
 	}
 
 	@Override
