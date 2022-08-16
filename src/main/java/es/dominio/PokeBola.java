@@ -1,6 +1,6 @@
 package es.dominio;
 
-public class PokeBola implements Bola {
+public class PokeBola extends Bola {
 
 	@Override
 	public void capturarPokemon(Pokemon pokemon) {

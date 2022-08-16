@@ -6,7 +6,7 @@ import es.dominio.Bola;
 
 public interface BolaDAO {
 
-	public int nuevaBola(Bola bola) throws SQLException;
+	public int nuevaBola(Bola bola, int id_entrenador) throws SQLException;
 	public boolean eliminarBola(int id) throws SQLException;
 	public Bola consultarBola(int id) throws SQLException;
 }
