@@ -14,22 +14,24 @@ import es.repositorio.interfaceDAO.PokemonDAO;
 public class PokemonDAOImpl extends ConexionToBD implements PokemonDAO {
 
 	@Override
-	public boolean guardarPokemon(Pokemon pokemon, int id_entrenador) throws SQLException {
+	public int guardarPokemon(Pokemon pokemon, int id_entrenador) throws SQLException {
 		conectarBD();
-		String insertSQL = "INSERT INTO Pokemons VALUE (?,?,?,?,?,NULL)";
+		int id = -1;
+		String insertSQL = "INSERT INTO Pokemons VALUE (?,?,?,?,?)";
 		PreparedStatement ps = conector.prepareStatement(insertSQL);
 		ps.setInt(1, 100);
 		ps.setInt(2, id_entrenador);
 		ps.setString(3, pokemon.getElemento().getTipoDeElemento());
 		ps.setString(4, pokemon.getNombre());
 		ps.setInt(5, pokemon.getIdPokeAPI());
-		if(ps.execute())
+		ps.executeUpdate();
+		ResultSet rs = conector.prepareStatement("select max(id) from pokemons").executeQuery();
+		if(rs.next())
 		{
-			desconectarBD();
-			return true;
+			id = rs.getInt(1);
 		}
 		desconectarBD();
-		return false;
+		return id;
 	}
 
 	@Override

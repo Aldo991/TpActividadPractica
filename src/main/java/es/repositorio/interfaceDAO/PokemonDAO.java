@@ -8,7 +8,7 @@ import es.dominio.Pokemon;
 public interface PokemonDAO {
 
 	//INSERT
-	public boolean guardarPokemon(Pokemon pokemon, int id_entrenador) throws SQLException;
+	public int guardarPokemon(Pokemon pokemon, int id_entrenador) throws SQLException;
 	//SELECT
 	public Pokemon consultarPokemon(int id_pokemon) throws SQLException;
 	public ArrayList<Pokemon> listaDePokemons(int id_entrenador) throws SQLException;
