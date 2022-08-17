@@ -1,5 +1,6 @@
 package es.Dupla_Lerner_Callisaya_DDS_K3002.TpActividadPracticaParcial;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import es.dominio.Bola;
@@ -14,6 +15,8 @@ import es.repositorio.interfaceDAO.EntrenadorDAO;
 import es.repositorio.interfaceDAOImpl.BolaDAOImpl;
 import es.repositorio.interfaceDAOImpl.ClubDAOImpl;
 import es.repositorio.interfaceDAOImpl.EntrenadorDAOImpl;
+import es.services.pokeApi.ServicioPokeAPI;
+import es.services.pokeApi.entidades.PokemonMolde;
 
 /**
  * Hello world!
@@ -23,20 +26,13 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hola mundo" );
-        EntrenadorDAO entrenadorDao = new EntrenadorDAOImpl();
-        Entrenador entrenador = new Entrenador();
-        entrenador.setEdad(20);
-        entrenador.setNombre("Pedro");
-        entrenador.setPassword("789");
-        entrenador.setUserName("PedritoNOSE");
+        ServicioPokeAPI servicioPokeAPI = ServicioPokeAPI.getInstancia();
         try {
-        	int id = entrenadorDao.registrarEntrenador(entrenador);
-        	System.out.println("id: " + id);
-		} catch (SQLException e) {
+			PokemonMolde pokemon = servicioPokeAPI.getPokemon("pikachu");
+			System.out.println(pokemon.id + " | " + pokemon.name);
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        
     }
 }
